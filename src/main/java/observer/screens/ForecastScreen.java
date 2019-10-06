@@ -1,13 +1,13 @@
 package observer.screens;
 
-import observer.Subject;
+import java.util.Observable;
 
 public class ForecastScreen extends AbstractScreenObserver {
 
     private float currentPressure = 29.92f;
     private float lastPressure;
 
-    public ForecastScreen(Subject weatherData) {
+    public ForecastScreen(Observable weatherData) {
         super(weatherData);
     }
 

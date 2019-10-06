@@ -1,10 +1,10 @@
 package observer.screens;
 
-import observer.Subject;
+import java.util.Observable;
 
 public class CurrentConditionsScreen extends AbstractScreenObserver {
 
-    public CurrentConditionsScreen(Subject weatherData) {
+    public CurrentConditionsScreen(Observable weatherData) {
         super(weatherData);
     }
 

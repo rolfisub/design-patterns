@@ -1,12 +1,12 @@
 package observer.screens;
 
-import observer.Subject;
+import java.util.Observable;
 
 public class HeatIndexScreen extends AbstractScreenObserver {
 
     private float heatIndex = 0.0f;
 
-    public HeatIndexScreen(Subject weatherData) {
+    public HeatIndexScreen(Observable weatherData) {
         super(weatherData);
     }
 

@@ -1,6 +1,6 @@
 package observer.screens;
 
-import observer.Subject;
+import java.util.Observable;
 
 public class StatisticsScreen extends AbstractScreenObserver {
     private float maxTemp = 0.0f;
@@ -8,7 +8,7 @@ public class StatisticsScreen extends AbstractScreenObserver {
     private float tempSum= 0.0f;
     private int numReadings;
 
-    public StatisticsScreen(Subject weatherData) {
+    public StatisticsScreen(Observable weatherData) {
         super(weatherData);
     }
 

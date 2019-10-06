@@ -1,23 +1,28 @@
 package observer.screens;
 
-import observer.Subject;
-import observer.WeatherObserver;
+import observer.WeatherData;
 
-abstract public class AbstractScreenObserver implements DisplayElement, WeatherObserver {
+import java.util.Observable;
+import java.util.Observer;
+
+abstract public class AbstractScreenObserver implements DisplayElement, Observer {
     protected float temperature, humidity, pressure;
-    protected Subject weatherData;
+    protected Observable weatherData;
 
-    public AbstractScreenObserver(Subject weatherData) {
+    public AbstractScreenObserver(Observable weatherData) {
         this.weatherData = weatherData;
         this.weatherData.addObserver(this);
     }
 
-    public void update(float temperature, float humidity, float pressure) {
-        this.temperature = temperature;
-        this.humidity = humidity;
-        this.pressure = pressure;
-        processData();
-        display();
+    public void update(Observable o, Object arg) {
+        if(o instanceof WeatherData) {
+            WeatherData weatherData = (WeatherData) o;
+            this.temperature = weatherData.getTemperature();
+            this.humidity = weatherData.getHumidity();
+            this.pressure = weatherData.getPressure();
+            processData();
+            display();
+        }
     }
 
     abstract public void processData();
