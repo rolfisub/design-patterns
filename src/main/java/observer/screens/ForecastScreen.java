@@ -2,7 +2,7 @@ package observer.screens;
 
 import observer.Subject;
 
-public class ForecastScreen extends AbstractScreen {
+public class ForecastScreen extends AbstractScreenObserver {
 
     private float currentPressure = 29.92f;
     private float lastPressure;
@@ -12,10 +12,9 @@ public class ForecastScreen extends AbstractScreen {
     }
 
     @Override
-    public void update(float temperature, float humidity, float pressure) {
+    public void processData() {
         lastPressure = currentPressure;
-        currentPressure = pressure;
-        super.update(temperature, humidity, pressure);
+        currentPressure = this.pressure;
     }
 
     @Override

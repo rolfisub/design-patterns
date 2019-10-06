@@ -3,11 +3,11 @@ package observer.screens;
 import observer.Subject;
 import observer.WeatherObserver;
 
-abstract public class AbstractScreen implements DisplayElement, WeatherObserver {
+abstract public class AbstractScreenObserver implements DisplayElement, WeatherObserver {
     protected float temperature, humidity, pressure;
     protected Subject weatherData;
 
-    public AbstractScreen(Subject weatherData) {
+    public AbstractScreenObserver(Subject weatherData) {
         this.weatherData = weatherData;
         this.weatherData.addObserver(this);
     }
@@ -16,8 +16,11 @@ abstract public class AbstractScreen implements DisplayElement, WeatherObserver 
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
+        processData();
         display();
     }
+
+    abstract public void processData();
 
     abstract public void display();
 

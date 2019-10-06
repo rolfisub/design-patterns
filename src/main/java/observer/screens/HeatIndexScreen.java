@@ -2,17 +2,17 @@ package observer.screens;
 
 import observer.Subject;
 
-public class HeatIndexScreen extends AbstractScreen {
+public class HeatIndexScreen extends AbstractScreenObserver {
 
-    float heatIndex = 0.0f;
+    private float heatIndex = 0.0f;
 
     public HeatIndexScreen(Subject weatherData) {
         super(weatherData);
     }
 
-    public void update(float t, float rh, float pressure) {
-        heatIndex = computeHeatIndex(t, rh);
-        super.update(t, rh, pressure);
+    @Override
+    public void processData() {
+        heatIndex = computeHeatIndex(this.temperature, this.humidity);
     }
 
     private float computeHeatIndex(float t, float rh) {

@@ -2,7 +2,7 @@ package observer.screens;
 
 import observer.Subject;
 
-public class StatisticsScreen extends AbstractScreen {
+public class StatisticsScreen extends AbstractScreenObserver {
     private float maxTemp = 0.0f;
     private float minTemp = 200;
     private float tempSum= 0.0f;
@@ -13,18 +13,17 @@ public class StatisticsScreen extends AbstractScreen {
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure) {
-        tempSum += temp;
+    public void processData() {
+        tempSum += this.temperature;
         numReadings++;
 
-        if (temp > maxTemp) {
-            maxTemp = temp;
+        if (this.temperature > maxTemp) {
+            maxTemp = this.temperature;
         }
 
-        if (temp < minTemp) {
-            minTemp = temp;
+        if (this.temperature < minTemp) {
+            minTemp = this.temperature;
         }
-        super.update(temp, humidity, pressure);
     }
 
     @Override
