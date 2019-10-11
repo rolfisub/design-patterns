@@ -1,7 +1,7 @@
 package factory;
 
 import factory.simple.PizzaStore;
-import factory.simple.PizzaType;
+import factory.simple.pizzas.PizzaType;
 import factory.simple.SimplePizzaFactory;
 
 public class SimpleStoreSimulation {

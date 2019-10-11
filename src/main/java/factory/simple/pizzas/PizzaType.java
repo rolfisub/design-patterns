@@ -1,4 +1,4 @@
-package factory.simple;
+package factory.simple.pizzas;
 
 public enum PizzaType {
     Chesse,

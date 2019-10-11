@@ -1,7 +1,5 @@
 package factory.simple.pizzas;
 
-import factory.simple.Pizza;
-
 abstract public class AbstractPizza implements Pizza {
 
     private String pizzaName = "Unknown";
@@ -20,7 +18,6 @@ abstract public class AbstractPizza implements Pizza {
 
     public void prepare() {
         System.out.println("Preparing " + this.getPizzaName() + " pizza");
-
     }
 
     public void bake() {

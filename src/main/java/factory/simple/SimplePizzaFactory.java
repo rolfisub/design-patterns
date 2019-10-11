@@ -1,9 +1,6 @@
 package factory.simple;
 
-import factory.simple.pizzas.CheesePizza;
-import factory.simple.pizzas.ClamPizza;
-import factory.simple.pizzas.PepperoniPizza;
-import factory.simple.pizzas.VeggiePizza;
+import factory.simple.pizzas.*;
 
 public class SimplePizzaFactory {
     public Pizza createPizza(PizzaType type) {
